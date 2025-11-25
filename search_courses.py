@@ -1,7 +1,11 @@
 import sqlite3
 import os
 
-DB_PATH = r"C:\Users\JatinKumar\Downloads\course_recommender\courses.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "courses.db")
+print("Using DB:", DB_PATH)
+print("Exists:", os.path.exists(DB_PATH))
+
 
 def get_sql_candidates(keywords):
     conn = sqlite3.connect(DB_PATH)
